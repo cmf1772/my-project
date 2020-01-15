@@ -10,7 +10,7 @@ Vue.prototype.$axios = axios;
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = '/api'; // 配置axios请求的地址n
+axios.defaults.baseURL = 'http://localhost:3000'; // 配置axios请求的地址n
 axios.interceptors.response.use(
   response => {
     if (response.data.resultCode=="404") {

@@ -46,7 +46,7 @@ export default {
     },
     
     mounted() {
-        this.$axios.post('/login/cellphone')
+        this.$axios.get('/123')
         .then((res) => {
             console.log(res)
         }) 
