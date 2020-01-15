@@ -44,6 +44,16 @@ export default {
             }]
         }
     },
+    
+    mounted() {
+        this.$axios.post('/login/cellphone')
+        .then((res) => {
+            console.log(res)
+        }) 
+        .catch((res) => {
+            console.log(res)
+        })
+    },
 }
 </script>
 
