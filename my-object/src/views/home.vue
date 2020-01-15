@@ -46,7 +46,19 @@ export default {
     },
     
     mounted() {
-        this.$axios.get('/123')
+        this.$axios.get('/test')
+        .then((res) => {
+            console.log(res)
+        }) 
+        .catch((res) => {
+            console.log(res)
+        })
+
+
+        this.$axios.post('/login', {
+            user: 'test',
+            paw: '123456'
+        })
         .then((res) => {
             console.log(res)
         }) 

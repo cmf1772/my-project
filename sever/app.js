@@ -1,5 +1,6 @@
 var express=require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
@@ -10,7 +11,6 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
-
 
 var questions=[
     {
@@ -24,10 +24,20 @@ var questions=[
         age:13
 }];
 
+// 创建 application/x-www-form-urlencoded 编码解析
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(express.static('public'));
+
 //写个接口123
-app.get('/123',function(req,res){
+app.get('/test',function(req,res){
     res.status(200),
     res.json(questions)
+});
+
+
+app.post('/login',urlencodedParser,function(req,res){
+    console.log(req,res)
+    res.send(" post successfully!");
 });
 
 //配置服务端口
