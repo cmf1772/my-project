@@ -2,7 +2,6 @@
     <div>
         <ul ref="ul" @click="sendParent"></ul>
         <div>
-       
         </div>
     </div>
 </template>

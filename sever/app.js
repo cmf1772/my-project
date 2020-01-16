@@ -1,42 +1,40 @@
-var express=require('express');
+var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
 //设置跨域访问
-app.all('*', function(req, res, next) {
+app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1');
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By", ' 3.2.1');
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
 
-var questions=[
+var questions = [
     {
-        data:213,
-        num:444,
-        age:12
+        data: 213,
+        num: 444,
+        age: 12
     },
     {
-        data:456,
-        num:678,
-        age:13
-}];
+        data: 456,
+        num: 678,
+        age: 13
+    }];
 
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static('public'));
 
 //写个接口123
-app.get('/test',function(req,res){
+app.get('/test', function (req, res) {
     res.status(200),
-    res.json(questions)
+        res.json(questions)
 });
-
-
-app.post('/login',urlencodedParser,function(req,res){
-    console.log(req,res)
+app.post('/login', urlencodedParser, function (req, res) {
+    console.log(req, res)
     res.send(" post successfully!");
 });
 

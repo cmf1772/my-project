@@ -9,4 +9,25 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+
+  <script>
+    let imgBox = document.getElementById('app')
+    // 获取其宽度
+    let wImgbox = imgBox.getBoundingClientRect().width
+    // 设置其高度（以宽度的60%为例）
+    imgBox.height = 0.6 * wImgbox + 'px'
+
+
+    window.onresize = () => {
+        return (() => {
+          let imgBox = document.getElementById('app')
+          // 获取其宽度
+          let wImgbox = imgBox.getBoundingClientRect().width
+          // 设置其高度（以宽度的60%为例）
+          imgBox.height = 0.6 * wImgbox + 'px'
+
+        })()
+    }
+    
+  </script>
 </html>
