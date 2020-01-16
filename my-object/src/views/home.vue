@@ -1,7 +1,10 @@
 <template>
     <div>
         <div>
-            <LeftTree :son = "mas"></LeftTree>
+            <LeftTree :son = "mas" @get-sondata="getSonText"> </LeftTree>
+            <p>{{sonDate}}</p>
+            <p @click="changmixin">{{mes}}</p>
+            <p>{{allDate}}</p>
         </div>
         <router-view/>
     </div>
@@ -9,11 +12,14 @@
 
 <script>
 import LeftTree from '@/components/LeftTree'
+import mixin from '../components/mixin'
 export default {
     name: 'home',
     components: {
         LeftTree
     },
+
+    mixins: [mixin],
 
     data() {
         return {
@@ -41,7 +47,19 @@ export default {
                 }]
             }, {
                 name: '组建9',
-            }]
+            }],
+            sonDate: ''
+        }
+    },
+
+    methods: {
+        getSonText(res) {
+            this.sonDate = res
+        },
+
+        changmixin() {
+            this.mes = '我更改了你呢'
+            this.allDate = '我更改了全局data'
         }
     },
     

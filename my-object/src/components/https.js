@@ -29,4 +29,4 @@ var http = {
   }
 }
 
-export default http
+export default http 

@@ -1,6 +1,9 @@
 <template>
     <div>
-        <ul ref="ul"></ul>
+        <ul ref="ul" @click="sendParent"></ul>
+        <div>
+       
+        </div>
     </div>
 </template>
 
@@ -12,7 +15,7 @@ export default {
 
   data () {
     return {
-      
+        sonData: '我是自组件传过来的，哇哈哈'
     }
   },
 
@@ -42,16 +45,20 @@ export default {
                 domUl.className = textId
             }
             this.$refs.ul.appendChild(domUl)
+      },
+
+      sendParent() {
+          this.$emit('get-sondata', this.sonData)
       }
   },
 
   mounted() {
       this.createDom()
-      this.$refs.ul.onclick = function(e) {
-          if (e.target.nodeName == "LI" && e.srcElement.className === "") {
-              console.log(e)
-          }
-      }
+    //   this.$refs.ul.onclick = function(e) {
+    //       if (e.target.nodeName == "LI" && e.srcElement.className === "") {
+    //           console.log(e)
+    //       }
+    //   }
   },
 
 }
