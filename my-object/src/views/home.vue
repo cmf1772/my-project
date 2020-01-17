@@ -80,7 +80,6 @@ export default {
     changmixin() {
       this.mes = "我更改了你呢";
       this.allDate = "我更改了全局data";
-
       this.rightDate = "我更改了right的船只";
     },
 

@@ -53,6 +53,7 @@ export default {
     mousemove(res) {
         // clearInterval(this.stopTime);
     },
+
     change(type) {
       clearInterval(this.stopTime);
       if (type === "left") {
